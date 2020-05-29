@@ -1,0 +1,23 @@
+export NEWT_COLORS='
+root=black,black
+border=black,black
+window=black,black
+shadow=black,black
+title=brightgreen,black
+button=white,black
+actbutton=black,white
+checkbox=back,black
+actcheckbox=black,black
+entry=green,black
+label=white,black
+listbox=green,black
+actlistbox=black,green
+textbox=white,black
+acttextbox=black,white
+helpline=black
+roottext=black
+disentry=black,black
+compactbutton=black,black
+actsellistbox=black,green
+sellistbox=green,black
+'

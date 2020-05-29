@@ -1,0 +1,2 @@
+sudo rpi-update
+
