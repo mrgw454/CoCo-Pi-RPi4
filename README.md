@@ -10,7 +10,7 @@ http://coco-pi.com
 Coco-Pi Project Facebook Page:
 https://www.facebook.com/groups/748644118674047/
 
-Invitation to Discord (where you can find the cocopi3 chat group):
+Invitation to Discord (where you can find the coco-pi chat group):
 https://discord.gg/4J5nHXm
 
 Raspbian:
