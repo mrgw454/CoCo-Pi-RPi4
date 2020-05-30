@@ -29,8 +29,8 @@
         8) coco3-hdbdos-6309-nitros9.sh;;
         9) coco3-Fuzix-pyDW.sh;;
        10) coco3-hdbdos-pyDW-PLATO.sh;;
-       11) coco3-yados-HD.sh;;
-       12) coco3-yados-HD-6309.sh;;
+       11) coco3-yados-HD-mpi.sh;;
+       12) coco3-yados-HD-6309-mpi.sh;;
        13) menu;;
         *) echo "Quitting...";;
     esac

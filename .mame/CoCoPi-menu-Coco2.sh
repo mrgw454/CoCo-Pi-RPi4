@@ -23,8 +23,8 @@
         5) coco2-hdbdos.sh;;
         6) coco2-hdbdos-6309.sh;;
         7) coco2-hdbdos-pyDW-PLATO.sh;;
-        8) coco2-yados-HD.sh;;
-        9) coco2-yados-HD-6309.sh;;
+        8) coco2-yados-HD-mpi.sh;;
+        9) coco2-yados-HD-6309-mpi.sh;;
        10) menu;;
         *) echo "Quitting...";;
     esac
