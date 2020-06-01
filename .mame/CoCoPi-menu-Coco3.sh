@@ -5,15 +5,16 @@
     "2" "Tandy Color Computer 3 DECB w/6309,2MB" \
     "3" "Tandy Color Computer 3 DECB w/SSC & MPI" \
     "4" "Tandy Color Computer 3 DECB w/GameMaster" \
-    "5" "Tandy Color Computer 3 DECB w/Deluxe RS-232 Pak" \
-    "6" "Tandy Color Computer 3 HDB-DOS" \
-    "7" "Tandy Color Computer 3 HDB-DOS w/6309" \
-    "8" "Tandy Color Computer 3 HDB-DOS w/6309,2MB & NitrOS9 EOU" \
-    "9" "Tandy Color Computer 3 HDB-DOS w/6309 & Fuzix" \
-    "10" "Tandy Color Computer 3 HDB-DOS w/PLATO" \
-    "11" "Tandy Color Computer 3 YA-DOS w/HDD" \
-    "12" "Tandy Color Computer 3 YA-DOS w/6309,2MB & HDD" \
-    "13" "Return to Main Menu" \
+    "5" "Tandy Color Computer 3 DECB w/6309 & ORCH90" \
+    "6" "Tandy Color Computer 3 DECB w/Deluxe RS-232 Pak" \
+    "7" "Tandy Color Computer 3 HDB-DOS" \
+    "8" "Tandy Color Computer 3 HDB-DOS w/6309" \
+    "9" "Tandy Color Computer 3 HDB-DOS w/6309,2MB & NitrOS9 EOU" \
+    "10" "Tandy Color Computer 3 HDB-DOS w/6309 & Fuzix" \
+    "11" "Tandy Color Computer 3 HDB-DOS w/PLATO" \
+    "12" "Tandy Color Computer 3 YA-DOS w/HDD" \
+    "13" "Tandy Color Computer 3 YA-DOS w/6309,2MB & HDD" \
+    "14" "Return to Main Menu" \
     3>&1 1>&2 2>&3)
 
     # Below you can enter the corresponding commands
@@ -23,14 +24,15 @@
         2) coco3-decb-6309-2MB.sh;;
         3) coco3-decb-ssc-mpi.sh;;
         4) coco3-decb-gamemaster.sh;;
-        5) coco3-decb-term.sh;;
-        6) coco3-hdbdos.sh;;
-        7) coco3-hdbdos-6309.sh;;
-        8) coco3-hdbdos-6309-nitros9.sh;;
-        9) coco3-Fuzix-pyDW.sh;;
-       10) coco3-hdbdos-pyDW-PLATO.sh;;
-       11) coco3-yados-HD-mpi.sh;;
-       12) coco3-yados-HD-6309-mpi.sh;;
-       13) menu;;
+        5) coco3-decb-6309-ORCH90.sh;;
+        6) coco3-decb-term.sh;;
+        7) coco3-hdbdos.sh;;
+        8) coco3-hdbdos-6309.sh;;
+        9) coco3-hdbdos-6309-nitros9.sh;;
+       10) coco3-Fuzix-pyDW.sh;;
+       11) coco3-hdbdos-pyDW-PLATO.sh;;
+       12) coco3-yados-HD-mpi.sh;;
+       13) coco3-yados-HD-6309-mpi.sh;;
+       14) menu;;
         *) echo "Quitting...";;
     esac
