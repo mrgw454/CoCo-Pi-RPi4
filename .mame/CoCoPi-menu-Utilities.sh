@@ -47,9 +47,10 @@
     "44" "Download  Latest Fuzix Nightly image" \
     "45" "Download  Latest NitrOS9 EOU image" \
     "46" "Download  Latest UltimateSDC image" \
-    "47" "Reboot    Raspberry Pi" \
-    "48" "Shutdown  Raspberry Pi" \
-    "49" "Return to Main Menu" \
+    "47" "Update    CoCo-Pi from git repo" \
+    "48" "Reboot    Raspberry Pi" \
+    "49" "Shutdown  Raspberry Pi" \
+    "50" "Return to Main Menu" \
     3>&1 1>&2 2>&3)
 
     # Below you can enter the corresponding commands
@@ -101,8 +102,9 @@
         44) downloadFuzixNightly.sh && CoCoPi-menu-Utilities.sh;;
         45) downloadNitrOS9EOU.sh && CoCoPi-menu-Utilities.sh;;
         46) downloadUltimateSDC.sh && CoCoPi-menu-Utilities.sh;;
-        47) rebootRPi.sh;;
-        48) shutdownRPi.sh;;
-        49) menu;;
+        47) updateCoCo-Pi.sh && CoCoPi-menu-Utilities.sh;;
+        48) rebootRPi.sh;;
+        49) shutdownRPi.sh;;
+        50) menu;;
         *) echo "Quitting...";;
     esac
