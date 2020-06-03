@@ -1,19 +1,19 @@
 #!/bin/bash
 
 # script to create a new Coco floppy disk image and and copy all Coco related files to it.
-# It will also (optionally) run XRoar and mount the disk image (DriveWire or normal DECB)
+# It will also (optionally) run XRoar and mount the disk image (pyDriveWire or normal DECB)
 
 # this script can take up to 2 command line parameters:
-# Coco driver to use for XRoar (i.e. coco2 coco3, etc.) and use DriveWire (yes or no)
+# System to use for XRoar (i.e. coco2 coco2b, coco2bus) and use pyDriveWire (yes or no)
 
 # syntax example:
 
 # ./makeDSK coco2 y
 
 # this will create a new disk image and copy all Coco compatible files to a disk image
-# using name of the current folder.  In addition, it will launch MAME using the Coco 2
-# driver for XRoar (with HDBDOS) and use DriveWire with this disk image mounted as DRIVE 0.
-# If DriveWire is not running, the script will start it.
+# using name of the current folder.  In addition, it will launch XRoar (with HDBDOS)
+# and use pyDriveWire with this disk image mounted as DRIVE 0.
+# If pyDriveWire is not running, the script will start it.
 
 # Define function for displaying error codes from Toolshed's 'decb' command
 
@@ -37,12 +37,19 @@ functionErrorLevel() {
 
 }
 
+# use parameter file for XRoar (if found)
+XROARPARMSFILE=`cat $HOME/.xroar/.optional_xroar_parameters.txt`
+export XROARPARMS=$XROARPARMSFILE
+
 # get name of script and place it into a variable
 scriptname=`basename "$0"`
 
 
 # get name of current folder and place it into a variable
 floppy=`basename "$PWD"`
+
+workdir=$(pwd)
+
 
 # parse command line parameters for standard help options
 
@@ -80,11 +87,13 @@ echo -e
 
 decb dskini "$floppy.DSK"
 
+# ignore file extension case
+shopt -s nocasematch
 
 for f in *; do
 
 	# Copy all BASIC files (and convert names to UPPERCASE) to DSK image
-	if [[ $f =~ .BAS|.bas ]]; then
+	if [[ $f == *.BAS ]]; then
 
 		echo -e decb copy -0 -a -t -r "$f" "$floppy.DSK","${f^^}"
 		decb copy -0 -a -t -r "$f" "$floppy.DSK","${f^^}"
@@ -94,7 +103,7 @@ for f in *; do
 
 
 	# Copy all BINARY files (and convert names to UPPERCASE) to DSK image
-	if [[ $f =~ .BIN|.bin ]]; then
+	if [[ $f == *.BIN ]]; then
 
 		echo -e decb copy -2 -b -r "$f" "$floppy.DSK","${f^^}"
 		decb copy -2 -b -r "$f" "$floppy.DSK","${f^^}"
@@ -104,7 +113,7 @@ for f in *; do
 
 
 	# Copy all TEXT files (and convert names to UPPERCASE) to DSK image
-	if [[ $f =~ .TXT|.txt ]]; then
+	if [[ $f == *.TXT ]]; then
 
 		echo -e decb copy -3 -a -r "$f" "$floppy.DSK","${f^^}"
 		decb copy -3 -a -r "$f" "$floppy.DSK","${f^^}"
@@ -114,7 +123,7 @@ for f in *; do
 
 
 	# Copy all DAT files (and convert names to UPPERCASE) to DSK image
-	if [[ $f =~ .DAT|.dat ]]; then
+	if [[ $f == *.DAT ]]; then
 
 		echo -e decb copy -2 -b -r "$f" "$floppy.DSK","${f^^}"
 		decb copy -2 -b -r "$f" "$floppy.DSK","${f^^}"
@@ -124,7 +133,7 @@ for f in *; do
 
 
 	# Copy all ROM files (and convert names to UPPERCASE) to DSK image
-	if [[ $f =~ .ROM|.rom ]]; then
+	if [[ $f == *.ROM ]]; then
 
 		echo -e decb copy -2 -b -r "$f" "$floppy.DSK","${f^^}"
 		decb copy -2 -b -r "$f" "$floppy.DSK","${f^^}"
@@ -134,7 +143,7 @@ for f in *; do
 
 
 	# Copy all CHR files for CoCoVGA (and convert names to UPPERCASE) to DSK image
-	if [[ $f =~ .CHR|.chr ]]; then
+	if [[ $f == *.CHR ]]; then
 
 		echo -e decb copy -2 -b -r "$f" "$floppy.DSK","${f^^}"
 		decb copy -2 -b -r "$f" "$floppy.DSK","${f^^}"
@@ -144,7 +153,7 @@ for f in *; do
 
 
 # Copy all VG6 files for CoCoVGA (and convert names to UPPERCASE) to DSK image
-	if [[ $f =~ .VG6|.vg6 ]]; then
+	if [[ $f == *.VG6 ]]; then
 
 		echo -e decb copy -2 -b -r "$f" "$floppy.DSK","${f^^}"
 		decb copy -2 -b -r "$f" "$floppy.DSK","${f^^}"
@@ -154,7 +163,7 @@ for f in *; do
 
 
 # Copy all SCR files for CoCoVGA (and convert names to UPPERCASE) to DSK image
-	if [[ $f =~ .SCR|.scr ]]; then
+	if [[ $f == *.SCR ]]; then
 
 		echo -e decb copy -2 -b -r "$f" "$floppy.DSK","${f^^}"
 		decb copy -2 -b -r "$f" "$floppy.DSK","${f^^}"
@@ -189,7 +198,7 @@ fi
 
 
 
-# (optional) load XRoar and mount disk image in Drivewire INSTANCE 0 as DRIVE 0
+# (optional) load XRoar and mount disk image in pyDrivewire INSTANCE 0 as DRIVE 0
 
 if [[ $2 =~ Y|y ]];then
 
@@ -204,58 +213,65 @@ if [[ $2 =~ Y|y ]];then
 	echo -e
 
 
-	# make sure HDBDOS is used for DriveWire access
+	# make sure HDBDOS is used for pyDriveWire access
 
 
 	# Coco 2 section
 
 	if [[ $1 =~ coco2|coco2b|coco2bus ]];then
 
-		# start DriveWire if it's not running
+		# start pyDriveWire if it's not running
 
-		ps_out=`ps -ef | grep DW4UI | grep -v 'grep' | grep -v $0`
+		ps_out=`ps -ef | grep pyDriveWire | grep -v 'grep' | grep -v $0`
 		result=$(echo $ps_out | grep "$1")
 		if [[ "$result" != "" ]];then
 
-    		echo -e "DriveWire 4 is running"
+		echo -e "pyDriveWire is running"
 
 		else
 
-    		echo -e "DriveWire 4 is not running.  Starting DriveWire..."
-    		echo -e
-			$HOME/DriveWire4/DW4.sh > /dev/null 2>&1 &
-			sleep 4s
+		echo -e "pyDriveWire is not running.  Starting pyDriveWire..."
 
-		fi
+		rm /tmp/pyDriveWire.pid
+
+		cd $HOME/pyDriveWire
+		./pyDriveWire --daemon
+
+		sleep 3s
+
+	fi
 
 
-		# eject disk from DriveWire
-		java -jar $HOME/DriveWire4/DW4CLI.jar --instance="0" -command='dw disk eject '"0"
+		# eject disk from pyDriveWire
+		$HOME/pyDriveWire/pyDwCli http://localhost:6800 dw disk eject 0
 		echo -e
 
-		# insert disk for DriveWire
-		java -jar $HOME/DriveWire4/DW4CLI.jar --instance="0" -command='dw disk insert '"0 $PWD/$floppy.DSK"
+		# insert disk for pyDriveWire
+		$HOME/pyDriveWire/pyDwCli http://localhost:6800 dw disk insert 0 "$workdir/$floppy.DSK"
 		echo -e
 
-		# show (confirm) disk mounted in DriveWire
-		java -jar $HOME/DriveWire4/DW4CLI.jar --instance="0" -command='dw disk show '"0"
+		# show (confirm) disk mounted in pyDriveWire
+		$HOME/pyDriveWire/pyDwCli http://localhost:6800 dw disk show 0
 		echo -e
 
     #cd $HOME/.xroar
-    xroar -c $HOME/.xroar/xroar.conf -default-machine coco2bus -machine-cart hdbdos
+    xroar -c $HOME/.xroar/xroar.conf -default-machine coco2bus -machine-cart hdbdos $XROARPARMS
 
-		# eject disk from DriveWire
-		java -jar $HOME/DriveWire4/DW4CLI.jar --instance="0" -command='dw disk eject '"0"
-
-		echo -e
-
-		# stop DriveWire
+		# eject disk from pyDriveWire
+		$HOME/pyDriveWire/pyDwCli http://localhost:6800 dw disk eject 0
 
 		echo -e
-		echo -e "Stopping DriveWire..."
+
+		# stop pyDriveWire
+
+		echo -e
+		echo -e "Stopping pyDriveWire..."
 		echo -e
 
-		kill $(ps aux | grep 'DW4UI' | awk '{print $2}')
+		cd $HOME/pyDriveWire
+		./pyDriveWire --stop
+		kill $(ps aux | grep 'pyDriveWire' | awk '{print $2}')
+    rm /tmp/pyDriveWire.pid
 
 		echo -e
 		echo -e "Done."
@@ -287,7 +303,7 @@ else
 	if [[ $1 =~ coco2|coco2b|coco2bus ]];then
 
     #cd $HOME/.xroar
-    xroar -c $HOME/.xroar/xroar.conf -default-machine coco2bus -load "$PWD/$floppy.DSK"
+    xroar -c $HOME/.xroar/xroar.conf -default-machine coco2bus -load "$PWD/$floppy.DSK" $XROARPARMS
 
 		echo -e
 		echo -e "Done."
@@ -300,7 +316,7 @@ else
 	echo -e
 	echo -e "Not a valid Coco based driver.  Exiting."
 	echo -e
-	echo -e "Some valid Coco drivers for MAME are:"
+	echo -e "Some valid Coco drivers for XRoar are:"
 	echo -e
 	echo -e "coco2, coco2b, coco2bus"
 
