@@ -22,6 +22,12 @@ https://www.mamedev.org/
 XRoar:
 https://www.6809.org.uk/xroar/
 
+Toolshed:
+https://sourceforge.net/p/toolshed/wiki/Home/
+
+Motorola 6809 dev tools:
+https://launchpad.net/~tormodvolden/+archive/ubuntu/m6809
+
 pyDriveWire:
 https://github.com/n6il/pyDriveWire
 
