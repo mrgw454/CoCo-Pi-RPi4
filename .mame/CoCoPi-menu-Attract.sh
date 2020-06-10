@@ -10,8 +10,9 @@
     "7" "Dragon 32 XRoar Attract Mode (loop through all)" \
     "8" "Dragon 32 XRoar Attract Mode (random)" \
     "9" "Coco 3 MAME     Image Slideshow" \
-    "10" "MAME            Play Donkey Kong Hack" \
-    "11" "Return to Main Menu" \
+    "10" "Coco 3 MAME     CoCoTracker Demo" \
+    "11" "MAME            Play Donkey Kong Hack" \
+    "12" "Return to Main Menu" \
     3>&1 1>&2 2>&3)
 
     # Below you can enter the corresponding commands
@@ -26,7 +27,8 @@
         7) attract-mode-dragon-xroar.sh && CoCoPi-menu-Attract.sh;;
         8) attract-mode-random-dragon-xroar.sh && CoCoPi-menu-Attract.sh;;
         9) attract-mode-gallery.sh && CoCoPi-menu-Attract.sh;;
-       10) attract-mode-dkong.sh && CoCoPi-menu-Attract.sh;;
-       11) menu;;
+       10) attract-mode-ORCH90.sh && CoCoPi-menu-Attract.sh;;
+       11) attract-mode-dkong.sh && CoCoPi-menu-Attract.sh;;
+       12) menu;;
         *) echo "Quitting...";;
     esac
