@@ -28,7 +28,7 @@ do
             read -p "Press any key to continue." -n1 -s
             break
 	    ;;
-        "Fuzix stable")
+        "Fuzix tested")
 	    wget -P /media/share1/DW4/GORDON/FUZIX http://fuzix.play-classics.online/fuzix-tested.zip
 	    cd /media/share1/DW4/GORDON/FUZIX
 	    echo -e
