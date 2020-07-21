@@ -1,0 +1,35 @@
+# Main Instance
+option daemonPidFile /tmp/pyDriveWire.pid
+option daemonLogFile /tmp/pyDriveWire.log
+option accept True
+option port 65504
+option uiPort 6800
+option hdbdos True
+option printDir /media/share1/printer/
+dw server debug 1
+dw server conn debug 1
+dw disk insert 0 /media/share1/DW4/FURMAN/DWTERM/DWTERM.dsk
+
+#[serial]
+# Coco 3
+#option port /dev/ttyUSB0
+#option speed 115200
+#dw disk insert 0 /media/share1/DW4/FURMAN/DWTERM/DWTERM.dsk
+
+#[serial]
+# Coco 2
+#option port /dev/ttyUSB1
+#option speed 57600
+#dw disk insert 0 /media/share1/DW4/FURMAN/DWTERM/DWTERM.dsk
+
+#[serial]
+# MC-10
+#option port /dev/ttyUSB2
+#option speed 38400
+#dw disk insert 0 /media/share1/DW4/FURMAN/MC-10/dwterm.c10
+
+[connect]
+option accept True
+option host localhost
+#option port 54321
+option port 6809
