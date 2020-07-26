@@ -9,8 +9,8 @@
     "6" "Coco 2 XRoar    Attract Mode Carts (random)" \
     "7" "Dragon 32 MAME  Attract Mode (random)" \
     "8" "Dragon 32 XRoar Attract Mode (random)" \
-    "9" "Coco 3 MAME     Image Slideshow" \
-    "10" "Coco 3 MAME     CoCoTracker Demo" \
+    "9" "Coco 3 MAME     Image Slideshow (random)" \
+    "10" "Coco 3 MAME     CoCoTracker Demo (random)" \
     "11" "MAME            Play Donkey Kong Hacks" \
     "12" "Return to Main Menu" \
     3>&1 1>&2 2>&3)
@@ -26,8 +26,8 @@
         6) attract-mode-random-coco2-xroar.sh /media/share1/carts && CoCoPi-menu-Attract.sh;;
         7) attract-mode-random-dragon.sh && CoCoPi-menu-Attract.sh;;
         8) attract-mode-random-dragon-xroar.sh && CoCoPi-menu-Attract.sh;;
-        9) attract-mode-gallery.sh && CoCoPi-menu-Attract.sh;;
-       10) attract-mode-ORCH90.sh && CoCoPi-menu-Attract.sh;;
+        9) attract-mode-random-coco3.sh /media/share1/RonD/BMP && CoCoPi-menu-Attract.sh;;
+       10) attract-mode-random-ORCH90.sh /media/share1/SDC/MUSIC/MODS && CoCoPi-menu-Attract.sh;;
        11) attract-mode-dkong.sh && CoCoPi-menu-Attract.sh;;
        12) menu;;
         *) echo "Quitting...";;
