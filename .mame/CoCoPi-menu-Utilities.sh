@@ -21,36 +21,37 @@
     "18" "Mount     DSK image in XRoar" \
     "19" "Mount     CASSETTE image in XRoar" \
     "20" "Mount     BIN image in XRoar" \
-    "21" "Mount     ROM image in XRoar" \
-    "22" "Show      all saved mount files" \
-    "23" "Clear     all saved mount files" \
-    "24" "Select    default YA-DOS HDD image" \
-    "25" "Select    MAME version" \
-    "26" "Select    XRoar version" \
-    "27" "Edit      optional MAME parameters (CAUTION)" \
-    "28" "Edit      optional XRoar parameters (CAUTION)" \
-    "29" "Edit      WiFi configuration" \
-    "30" "Edit      pyDriveWire configuration" \
-    "31" "Adjust    RPi audio volume" \
-    "32" "Test      Bluetooth/USB Game Controller" \
-    "33" "Run       Raspi-Config Script" \
-    "34" "Edit      /boot/config.txt (DANGEROUS)" \
-    "35" "Sync      Cloud Services" \
-    "36" "Show      Existing Bluetooth Pairing(s)" \
-    "37" "Backup    Existing Bluetooth Pairing(s)" \
-    "38" "Restore   Bluetooth Pairing(s) from Archive" \
-    "39" "Show      Existing Emulator Configuration File(s)" \
-    "40" "Backup    Existing Emulator Configuration File(s)" \
-    "41" "Restore   Emulator Configuration File(s) from Archive" \
-    "42" "Backup    RPi to alternate SD card" \
-    "43" "Download  ROM images to /media/share1/roms" \
-    "44" "Download  Latest Fuzix Nightly image" \
-    "45" "Download  Latest NitrOS9 EOU image" \
-    "46" "Download  Latest UltimateSDC image" \
-    "47" "Update    CoCo-Pi from git repo" \
-    "48" "Reboot    Raspberry Pi" \
-    "49" "Shutdown  Raspberry Pi" \
-    "50" "Return to Main Menu" \
+    "21" "Mount     ROM image in MAME" \
+    "22" "Mount     ROM image in XRoar" \
+    "23" "Show      all saved mount files" \
+    "24" "Clear     all saved mount files" \
+    "25" "Select    default YA-DOS HDD image" \
+    "26" "Select    MAME version" \
+    "27" "Select    XRoar version" \
+    "28" "Edit      optional MAME parameters (CAUTION)" \
+    "29" "Edit      optional XRoar parameters (CAUTION)" \
+    "30" "Edit      WiFi configuration" \
+    "31" "Edit      pyDriveWire configuration" \
+    "32" "Adjust    RPi audio volume" \
+    "33" "Test      Bluetooth/USB Game Controller" \
+    "34" "Run       Raspi-Config Script" \
+    "35" "Edit      /boot/config.txt (DANGEROUS)" \
+    "36" "Sync      Cloud Services" \
+    "37" "Show      Existing Bluetooth Pairing(s)" \
+    "38" "Backup    Existing Bluetooth Pairing(s)" \
+    "39" "Restore   Bluetooth Pairing(s) from Archive" \
+    "40" "Show      Existing Emulator Configuration File(s)" \
+    "41" "Backup    Existing Emulator Configuration File(s)" \
+    "42" "Restore   Emulator Configuration File(s) from Archive" \
+    "43" "Backup    RPi to alternate SD card" \
+    "44" "Download  ROM images to /media/share1/roms" \
+    "45" "Download  Latest Fuzix Nightly image" \
+    "46" "Download  Latest NitrOS9 EOU image" \
+    "47" "Download  Latest UltimateSDC image" \
+    "48" "Update    CoCo-Pi from git repo" \
+    "49" "Reboot    Raspberry Pi" \
+    "50" "Shutdown  Raspberry Pi" \
+    "51" "Return to Main Menu" \
     3>&1 1>&2 2>&3)
 
     # Below you can enter the corresponding commands
@@ -76,35 +77,36 @@
         18) mountXRoarFloppy.sh /media/share1/ && CoCoPi-menu-Utilities.sh;;
         19) mountXRoarCassette.sh /media/share1/cassette/ && CoCoPi-menu-Utilities.sh;;
         20) mountXRoarBin.sh /media/share1/ && CoCoPi-menu-Utilities.sh;;
-        21) mountXRoarROM.sh /media/share1/roms/ && CoCoPi-menu-Utilities.sh;;
-        22) mountShow.sh && CoCoPi-menu-Utilities.sh;;
-        23) mountClear.sh && CoCoPi-menu-Utilities.sh;;
-        24) select-hdd.sh && CoCoPi-menu-Utilities.sh;;
-        25) select-emu.sh && CoCoPi-menu-Utilities.sh;;
-        26) select-xroar.sh && CoCoPi-menu-Utilities.sh;;
-        27) editMAMEparms.sh && CoCoPi-menu-Utilities.sh;;
-        28) editXROARparms.sh && CoCoPi-menu-Utilities.sh;;
-        29) editWiFi.sh && CoCoPi-menu-Utilities.sh;;
-        30) editpyDWconfig.sh && CoCoPi-menu-Utilities.sh;;
-        31) adjustVol.sh && CoCoPi-menu-Utilities.sh ;;
-        32) test-controller.sh && CoCoPi-menu-Utilities.sh;;
-	33) runRaspiConfig.sh && CoCoPi-menu-Utilities.sh;;
-	34) editConfig-txt.sh && CoCoPi-menu-Utilities.sh;;
-        35) CoCoPi-menu-rclone.sh;;
-        36) showBluetoothPairings.sh && CoCoPi-menu-Utilities.sh;;
-        37) backupBluetoothPairings.sh && CoCoPi-menu-Utilities.sh;;
-        38) restoreBluetoothPairings.sh && CoCoPi-menu-Utilities.sh;;
-        39) showEMUConfigs.sh && CoCoPi-menu-Utilities.sh;;
-        40) backupEMUConfigs.sh && CoCoPi-menu-Utilities.sh;;
-        41) restoreEMUConfigs.sh && CoCoPi-menu-Utilities.sh;;
-        42) backupSD.sh && CoCoPi-menu-Utilities.sh;;
-        43) downloadROMs.sh && CoCoPi-menu-Utilities.sh;;
-        44) downloadFuzixNightly.sh && CoCoPi-menu-Utilities.sh;;
-        45) downloadNitrOS9EOU.sh && CoCoPi-menu-Utilities.sh;;
-        46) downloadUltimateSDC.sh && CoCoPi-menu-Utilities.sh;;
-        47) updateCoCo-Pi.sh && CoCoPi-menu-Utilities.sh;;
-        48) rebootRPi.sh;;
-        49) shutdownRPi.sh;;
-        50) menu;;
+        21) mountROM.sh /media/share1/ && CoCoPi-menu-Utilities.sh;;
+	22) mountXRoarROM.sh /media/share1/roms/ && CoCoPi-menu-Utilities.sh;;
+        23) mountShow.sh && CoCoPi-menu-Utilities.sh;;
+        24) mountClear.sh && CoCoPi-menu-Utilities.sh;;
+        25) select-hdd.sh && CoCoPi-menu-Utilities.sh;;
+        26) select-emu.sh && CoCoPi-menu-Utilities.sh;;
+        27) select-xroar.sh && CoCoPi-menu-Utilities.sh;;
+        28) editMAMEparms.sh && CoCoPi-menu-Utilities.sh;;
+        29) editXROARparms.sh && CoCoPi-menu-Utilities.sh;;
+        30) editWiFi.sh && CoCoPi-menu-Utilities.sh;;
+        31) editpyDWconfig.sh && CoCoPi-menu-Utilities.sh;;
+        32) adjustVol.sh && CoCoPi-menu-Utilities.sh ;;
+        33) test-controller.sh && CoCoPi-menu-Utilities.sh;;
+	34) runRaspiConfig.sh && CoCoPi-menu-Utilities.sh;;
+	35) editConfig-txt.sh && CoCoPi-menu-Utilities.sh;;
+        36) CoCoPi-menu-rclone.sh;;
+        37) showBluetoothPairings.sh && CoCoPi-menu-Utilities.sh;;
+        38) backupBluetoothPairings.sh && CoCoPi-menu-Utilities.sh;;
+        39) restoreBluetoothPairings.sh && CoCoPi-menu-Utilities.sh;;
+        40) showEMUConfigs.sh && CoCoPi-menu-Utilities.sh;;
+        41) backupEMUConfigs.sh && CoCoPi-menu-Utilities.sh;;
+        42) restoreEMUConfigs.sh && CoCoPi-menu-Utilities.sh;;
+        43) backupSD.sh && CoCoPi-menu-Utilities.sh;;
+        44) downloadROMs.sh && CoCoPi-menu-Utilities.sh;;
+        45) downloadFuzixNightly.sh && CoCoPi-menu-Utilities.sh;;
+        46) downloadNitrOS9EOU.sh && CoCoPi-menu-Utilities.sh;;
+        47) downloadUltimateSDC.sh && CoCoPi-menu-Utilities.sh;;
+        48) updateCoCo-Pi.sh && CoCoPi-menu-Utilities.sh;;
+        49) rebootRPi.sh;;
+        50) shutdownRPi.sh;;
+        51) menu;;
         *) echo "Quitting...";;
     esac
