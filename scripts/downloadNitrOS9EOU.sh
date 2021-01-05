@@ -25,7 +25,7 @@ echo -e
 echo -e
 echo -e "Downloading latest file..."
 echo -e
-wget -P /media/share1/EMU/EOU "http://lcurtisboyle.com/nitros9/NitrOS9-EOU-6309-LATEST.zip"
+wget -c -P /media/share1/EMU/EOU "http://lcurtisboyle.com/nitros9/NitrOS9-EOU-6309-LATEST.zip"
 
 cd /media/share1/EMU/EOU
 

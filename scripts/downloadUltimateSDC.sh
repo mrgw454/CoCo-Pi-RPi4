@@ -3,7 +3,7 @@
 clear
 
 # set current SDC image filename
-export SDCIMAGE="https://colorcomputerarchive.com/repo/Disks/Coco%20SDC/Image/Coco%20SDC%20Image%20%282020-08-11%29.zip"
+export SDCIMAGE=https://colorcomputerarchive.com/repo/Disks/Coco%20SDC/Image/Coco%20SDC%20Image%20%282020-08-11%29.zip
 
 echo
 echo
@@ -27,19 +27,21 @@ echo -e
 echo -e
 echo -e "Downloading SDC Image file..."
 echo -e
-wget -P /media/share1/SDC $SDCIMAGE
+wget -c -P /media/share1/SDC $SDCIMAGE
 
 cd /media/share1/SDC
 
     echo -e "Extracting files into /media/share1/SDC..."
     echo -e
-    unzip -o $SDCIMAGE -d /media/share1/SDC
+    fn=$(ls -t | head -n1)
+
+    unzip -o "$fn" -d /media/share1/SDC
     echo -e
     echo -e "Done!"
     echo -e
     read -p "Press any key to continue." -n1 -s
 
-rm $SDCIMAGE
+rm "$fn"
 
 cd $HOME/.mame
 

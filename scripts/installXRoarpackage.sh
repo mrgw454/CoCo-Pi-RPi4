@@ -31,7 +31,8 @@ do
     fi
 
     # now we can use the selected file
-    sudo dpkg -i --dry-run "$filename"
+    #sudo dpkg -i --dry-run "$filename"
+    sudo dpkg -i "$filename"
     echo
     echo
     read -p "Press any key to continue... " -n1 -s

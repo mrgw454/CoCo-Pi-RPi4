@@ -24,8 +24,8 @@ echo -e
 echo -e
 echo -e "Downloading ROM files..."
 echo -e
-wget -P /media/share1/roms http://rickadams.org/ronklein/CoCoPi-roms.zip
-wget -P /media/share1/roms http://rickadams.org/ronklein/CoCoPi-roms.md5
+wget -c -P /media/share1/roms http://rickadams.org/ronklein/CoCoPi-roms.zip
+wget -c -P /media/share1/roms http://rickadams.org/ronklein/CoCoPi-roms.md5
 
 cd /media/share1/roms
 

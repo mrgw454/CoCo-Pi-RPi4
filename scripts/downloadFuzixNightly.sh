@@ -17,7 +17,7 @@ select opt in "${options[@]}"
 do
     case $opt in
         "Fuzix nightly")
-	    wget -P /media/share1/DW4/GORDON/FUZIX http://fuzix.play-classics.online/fuzix-nightly.zip
+	    wget -c -P /media/share1/DW4/GORDON/FUZIX http://fuzix.play-classics.online/fuzix-nightly.zip
 	    cd /media/share1/DW4/GORDON/FUZIX
 	    echo -e
     	    unzip -o /media/share1/DW4/GORDON/FUZIX/fuzix-nightly.zip
@@ -29,7 +29,7 @@ do
             break
 	    ;;
         "Fuzix tested")
-	    wget -P /media/share1/DW4/GORDON/FUZIX http://fuzix.play-classics.online/fuzix-tested.zip
+	    wget -c -P /media/share1/DW4/GORDON/FUZIX http://fuzix.play-classics.online/fuzix-tested.zip
 	    cd /media/share1/DW4/GORDON/FUZIX
 	    echo -e
     	    unzip -o /media/share1/DW4/GORDON/FUZIX/fuzix-tested.zip
