@@ -49,9 +49,11 @@
     "46" "Download  Latest NitrOS9 EOU image" \
     "47" "Download  Latest UltimateSDC image" \
     "48" "Update    CoCo-Pi from git repo" \
-    "49" "Reboot    Raspberry Pi" \
-    "50" "Shutdown  Raspberry Pi" \
-    "51" "Return to Main Menu" \
+    "49" "Install   MAME  package file" \
+    "50" "Install   XRoar package file" \
+    "51" "Reboot    Raspberry Pi" \
+    "52" "Shutdown  Raspberry Pi" \
+    "53" "Return to Main Menu" \
     3>&1 1>&2 2>&3)
 
     # Below you can enter the corresponding commands
@@ -105,8 +107,10 @@
         46) downloadNitrOS9EOU.sh && CoCoPi-menu-Utilities.sh;;
         47) downloadUltimateSDC.sh && CoCoPi-menu-Utilities.sh;;
         48) updateCoCo-Pi.sh && CoCoPi-menu-Utilities.sh;;
-        49) rebootRPi.sh;;
-        50) shutdownRPi.sh;;
-        51) menu;;
+        49) installMAMEpackage.sh && CoCoPi-menu-Utilities.sh;;
+        50) installXRoarpackage.sh && CoCoPi-menu-Utilities.sh;;
+        51) rebootRPi.sh;;
+        52) shutdownRPi.sh;;
+        53) menu;;
         *) echo "Quitting...";;
     esac

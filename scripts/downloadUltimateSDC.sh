@@ -2,6 +2,9 @@
 
 clear
 
+# set current SDC image filename
+export SDCIMAGE="https://colorcomputerarchive.com/repo/Disks/Coco%20SDC/Image/Coco%20SDC%20Image%20%282020-08-11%29.zip"
+
 echo
 echo
 echo
@@ -22,21 +25,21 @@ echo -e
 read -p "... Press any key to continue." -n1 -s
 echo -e
 echo -e
-echo -e "Downloading ROM files..."
+echo -e "Downloading SDC Image file..."
 echo -e
-wget -P /media/share1/SDC "http://www.colorcomputerarchive.com/coco/Disks/Coco%20SDC/Image/Coco SDC Image (2019-05-02).zip"
+wget -P /media/share1/SDC $SDCIMAGE
 
 cd /media/share1/SDC
 
     echo -e "Extracting files into /media/share1/SDC..."
     echo -e
-    unzip -o "/media/share1/SDC/Coco SDC Image (2019-05-02).zip" -d /media/share1/SDC
+    unzip -o $SDCIMAGE -d /media/share1/SDC
     echo -e
     echo -e "Done!"
     echo -e
     read -p "Press any key to continue." -n1 -s
 
-rm "/media/share1/SDC/Coco SDC Image (2019-05-02).zip"
+rm $SDCIMAGE
 
 cd $HOME/.mame
 
