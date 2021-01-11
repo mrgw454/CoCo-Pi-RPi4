@@ -51,9 +51,10 @@
     "48" "Update    CoCo-Pi from git repo" \
     "49" "Install   MAME  package file" \
     "50" "Install   XRoar package file" \
-    "51" "Reboot    Raspberry Pi" \
-    "52" "Shutdown  Raspberry Pi" \
-    "53" "Return to Main Menu" \
+    "51" "Load      HDB-DOS via Cassette Cable" \
+    "52" "Reboot    Raspberry Pi" \
+    "53" "Shutdown  Raspberry Pi" \
+    "54" "Return to Main Menu" \
     3>&1 1>&2 2>&3)
 
     # Below you can enter the corresponding commands
@@ -109,8 +110,9 @@
         48) updateCoCo-Pi.sh && CoCoPi-menu-Utilities.sh;;
         49) installMAMEpackage.sh && CoCoPi-menu-Utilities.sh;;
         50) installXRoarpackage.sh && CoCoPi-menu-Utilities.sh;;
-        51) rebootRPi.sh;;
-        52) shutdownRPi.sh;;
-        53) menu;;
+        51) cloadm-hdbdos.sh && CoCoPi-menu-Utilities.sh;;
+        52) rebootRPi.sh;;
+        53) shutdownRPi.sh;;
+        54) menu;;
         *) echo "Quitting...";;
     esac

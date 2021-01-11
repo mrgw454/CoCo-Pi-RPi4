@@ -42,7 +42,7 @@ file=$(shuf -ezn 1 $1/* | xargs -0 -n1 echo)
 
 		echo Program to run/execute: $program
 		sleep 2
-		xroar -c $HOME/.xroar/xroar.conf -machine coco2bus -timeout 120 -cart mpi -mpi-load-cart 3=rsdos -mpi-slot 3 -load "$file" -type 'RUN "'$program'"\r' $XROARPARMS
+		xroar -c $HOME/.xroar/xroar.conf -machine coco2bus -timeout 120 $XROARPARMS -cart mpi -mpi-load-cart 3=rsdos -mpi-slot 3 -load "$file" -type 'RUN "'$program'"\r'
 		BAS=1
 
 	fi
@@ -58,7 +58,7 @@ file=$(shuf -ezn 1 $1/* | xargs -0 -n1 echo)
 
 			echo Program to run/execute: $program
 			sleep 2
-			xroar -c $HOME/.xroar/xroar.conf -machine coco2bus -timeout 120 -cart mpi -mpi-load-cart 3=rsdos -mpi-slot 3 -load "$file" -type 'LOADM "'$program'"\rEXEC/r' $XROARPARMS
+			xroar -c $HOME/.xroar/xroar.conf -machine coco2bus -timeout 120 $XROARPARMS -cart mpi -mpi-load-cart 3=rsdos -mpi-slot 3 -load "$file" -type 'LOADM "'$program'"\rEXEC/r'
 
 		fi
 	fi
@@ -68,7 +68,7 @@ file=$(shuf -ezn 1 $1/* | xargs -0 -n1 echo)
 
      if [[ $file == *.ccc ]]; then
 
-	xroar -c $HOME/.xroar/xroar.conf -default-machine coco2bus -timeout 120 -cart-autorun "$file" $XROARPARMS
+	xroar -c $HOME/.xroar/xroar.conf -default-machine coco2bus -timeout 120 $XROARPARMS -cart-autorun "$file"
      fi
 
 
