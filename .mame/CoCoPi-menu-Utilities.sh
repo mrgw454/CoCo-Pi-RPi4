@@ -52,9 +52,11 @@
     "49" "Install   MAME  package file" \
     "50" "Install   XRoar package file" \
     "51" "Load      HDB-DOS via Cassette Cable" \
-    "52" "Reboot    Raspberry Pi" \
-    "53" "Shutdown  Raspberry Pi" \
-    "54" "Return to Main Menu" \
+    "52" "Start     X-Windows Desktop" \
+    "53" "Stop      X-Windows Desktop" \
+    "54" "Reboot    Raspberry Pi" \
+    "55" "Shutdown  Raspberry Pi" \
+    "56" "Return to Main Menu" \
     3>&1 1>&2 2>&3)
 
     # Below you can enter the corresponding commands
@@ -111,8 +113,10 @@
         49) installMAMEpackage.sh && CoCoPi-menu-Utilities.sh;;
         50) installXRoarpackage.sh && CoCoPi-menu-Utilities.sh;;
         51) cloadm-hdbdos.sh && CoCoPi-menu-Utilities.sh;;
-        52) rebootRPi.sh;;
-        53) shutdownRPi.sh;;
-        54) menu;;
+        52) start-desktop.sh && CoCoPi-menu-Utilities.sh;;
+        53) stop-desktop.sh && CoCoPi-menu-Utilities.sh;;
+        54) rebootRPi.sh;;
+        55) shutdownRPi.sh;;
+        56) menu;;
         *) echo "Quitting...";;
     esac

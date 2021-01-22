@@ -1,0 +1,6 @@
+while true
+do
+ncat -lp 65504 -e "./lwwire ext=./lwwire-packet.so \
+drive=0,/media/share1/DW4/GORDON/FUZIX/boot.dsk \
+drive=1,/media/share1/DW4/GORDON/FUZIX/fuzixfs.dsk"
+done

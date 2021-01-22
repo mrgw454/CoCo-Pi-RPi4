@@ -4,10 +4,13 @@ echo
 echo Retrieving status information...
 echo
 
+RPI=$(tr -d '\0' </proc/device-tree/model)
+
 my_ip=$(ip route get 8.8.8.8 | awk -F"src " 'NR==1{split($2,a," ");print a[1]}')
 
 echo -e > status.txt
-echo -e >> status.txt
+
+echo -e Device: $RPI >> status.txt
 echo -e >> status.txt
 
 echo -e "[ALT][F1] - [ALT][F6] to toggle consoles" >> status.txt

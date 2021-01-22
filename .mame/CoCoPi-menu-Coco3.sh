@@ -11,11 +11,12 @@
     "8" "Tandy Color Computer 3 HDB-DOS" \
     "9" "Tandy Color Computer 3 HDB-DOS w/6309" \
     "10" "Tandy Color Computer 3 HDB-DOS w/6309,2MB & NitrOS9 EOU" \
-    "11" "Tandy Color Computer 3 HDB-DOS w/6309 & Fuzix" \
-    "12" "Tandy Color Computer 3 HDB-DOS w/PLATO" \
-    "13" "Tandy Color Computer 3 YA-DOS w/HDD" \
-    "14" "Tandy Color Computer 3 YA-DOS w/6309,2MB & HDD" \
-    "15" "Return to Main Menu" \
+    "11" "Tandy Color Computer 3 HDB-DOS w/6309,2MB,Fuzix & pyDW" \
+    "12" "Tandy Color Computer 3 HDB-DOS w/6309,2MB,Fuzix & lwwire" \
+    "13" "Tandy Color Computer 3 HDB-DOS w/PLATO" \
+    "14" "Tandy Color Computer 3 YA-DOS w/HDD" \
+    "15" "Tandy Color Computer 3 YA-DOS w/6309,2MB & HDD" \
+    "16" "Return to Main Menu" \
     3>&1 1>&2 2>&3)
 
     # Below you can enter the corresponding commands
@@ -32,9 +33,10 @@
         9) coco3-hdbdos-6309.sh;;
        10) coco3-hdbdos-6309-nitros9.sh;;
        11) coco3-Fuzix-pyDW.sh;;
-       12) coco3-hdbdos-pyDW-PLATO.sh;;
-       13) coco3-yados-HD-mpi.sh;;
-       14) coco3-yados-HD-6309-mpi.sh;;
-       15) menu;;
+       12) coco3-Fuzix-lwwire.sh;;
+       13) coco3-hdbdos-pyDW-PLATO.sh;;
+       14) coco3-yados-HD-mpi.sh;;
+       15) coco3-yados-HD-6309-mpi.sh;;
+       16) menu;;
         *) echo "Quitting...";;
     esac
