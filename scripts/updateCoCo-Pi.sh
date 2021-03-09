@@ -5,8 +5,13 @@
 # make sure to be in /home/pi
 cd $HOME
 
-git pull origin master
+#git pull origin master
 #git diff --name-only origin/master
+
+# new way
+git fetch --all
+git reset --hard origin/master
+git pull origin master
 
 echo -e
 echo -e
